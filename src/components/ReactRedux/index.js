@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // 引入我们的cart组件的action
 
 // 要导入action目录下对应里的action (导入actionCreators)
-import {increment, decreasement} from '../../Actions/cart'
+import {increment, asynDecreasement, decreasement} from '../../Actions/cart'
 
 
 // 在需要使用store的组件导入react-redux的connect
@@ -24,7 +24,7 @@ class Index extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // 进行参数的渲染
     return (
       
@@ -51,6 +51,7 @@ class Index extends Component {
               <td>{element.tittle}</td>
               <td>{element.price}</td>
               <td>
+                <button onClick={() => {this.props.asynDecreasement(element.id)}}>等一会在减</button>
                 <button onClick={() => {
                   // this.props.increment.bind(this,element.id)
                   this.props.increment(element.id)
@@ -105,7 +106,7 @@ const mapStateToProps = (state) => {
 也能够让该组件上的props属性上挂载
 */
 
-export default connect(mapStateToProps, {increment, decreasement})(Index) 
+export default connect(mapStateToProps, {increment, decreasement,asynDecreasement})(Index) 
 // 在上面使用装饰器的写法
 
 

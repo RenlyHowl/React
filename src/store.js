@@ -1,5 +1,5 @@
 // 引入我们的redux包
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 
 
 // 向外暴露我们创建的store
@@ -12,7 +12,13 @@ import {createStore} from 'redux'
 
 // 导入reducers
 import rootReducer from './Reducers'
-export default createStore(rootReducer)
+
+// 传入我们的中间件
+import thunk from "redux-thunk"
+
+// 在异步action的时候 需要给创建store传入第二个参数就是我们的中间件(是个方法再里面传入你的中间件)
+export default createStore(rootReducer, applyMiddleware(thunk))
+// 如果有多个中间件 就在applyMiddleware里面添加
 
 
 

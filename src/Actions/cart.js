@@ -35,15 +35,71 @@ export const increment = (id) => {
 }
 
 // 减少的方法
-
 export const decreasement = (id) => {
-  // 测试动作是否绑定成功
-  // console.log(id)
+  // 我们这里用定时器来模拟异步请求
+
   return {
     type: actionType.CART_AMOUNT_DECREASEMENT,
     payLoad: {
       id
     }
   }
+
+
 }
 
+
+
+
+
+
+
+// export const asynDecreasement = (id) => {
+//   // 我们这里用定时器来模拟异步请求
+
+//   // 返回一个dispatch方法
+//   return (dispatch) => {
+    
+//     // 延时手动返回一个dispatch方法
+//     setTimeout(() => {
+//       dispatch(
+//         {
+//         type: actionType.CART_AMOUNT_DECREASEMENT,
+//         payLoad: {
+//           id
+//         }
+//         }
+//       )
+//     }, 1000)
+
+//   }
+
+// }
+
+// export const asynDecreasement = (id) => {
+//   // 我们这里用定时器来模拟异步请求
+
+//   // 返回一个dispatch方法
+//   return (dispatch) => {
+    
+//     // 延时手动返回一个dispatch方法
+//     setTimeout(() => {
+//       dispatch(
+//         decreasement(id)
+//       )
+//     }, 1000)
+
+//   }
+
+// }
+
+
+// 将上面的代码进行简化
+export const asynDecreasement = id => dispatch => {
+    setTimeout(() => {
+      dispatch(
+        decreasement(id)
+      )
+    }, 1000)
+
+  }

@@ -8,12 +8,13 @@ import {
   Counter,
   Another,
   Redux,
-  ReactRedux
+  ReactRedux,
+  BlogList
 } from './components'
 
 
 
-import {getTodos} from './services'
+import {getTodos} from './services/getTodos'
 export default class App extends Component {
   constructor() {
     super();
@@ -52,6 +53,7 @@ export default class App extends Component {
     
     return (
       <Fragment>
+        <BlogList></BlogList>
         <ReactRedux></ReactRedux>
         <Another name="another"></Another>
         <TodoHeader desc="hahaha">

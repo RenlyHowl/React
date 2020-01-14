@@ -21,15 +21,17 @@ reducer;但是createStore只接收一个reducer,所以redux提供了一个合并
 
 // 导入cartReducer 如果有多个 引入多个reducer
 import cart from './cart'
+import BlogList from './blogList'
 
 // 导出合并后的reducer
 export default combineReducers({
   // 把我们引入的reducer作为参数传入到combineReducer合并
-  cart
+  cart, // 相当于cart: cart
   /*
   在外部我们就可以通过store.getState().cart访问我们的cartReducer里的state;
   这里的store是我们导出后的store
   */
+ BlogList
 })
 
 

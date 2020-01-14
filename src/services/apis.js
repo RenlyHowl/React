@@ -3,7 +3,8 @@ export default {
   // 根目录
   baseUrl: "https://jsonplaceholder.typicode.com",
   // 获取todos的接口
-  getTodos: "/todos"
+  getTodos: "/todos",
+  getPosts: "/posts"
 }
 
 
